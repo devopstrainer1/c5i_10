@@ -1,0 +1,23 @@
+Build and end to end Promotion effectiveness application using datasets in data/.
+
+Context:
+
+1> promotion.csv - contains promotion/SKU spend information
+2> sales.csv contains 2 months of sales data
+3> These two datasets have no common key; product/SKU names may differ
+
+Build:
+
+1> Entity resolution - match promotion SKU to sales product using normalisation, fuzzy/semantic matching and confidence scores
+2> Promotion analysis - Calculate baseline sales, promotion period sales, lift % incremental units/revenue and ROI using deterministic python calculations.
+3>Hybrid RAG - combine structured retrieval/calculations with vector retriever for business context.
+4> Claude powered Q&A - answer category questions such as “How much did this promotion helps” with citations and evidences
+5> LLM-as-a-judge - evaluate answers for correctness, relevance, roundedness, completeness and unsupported claims
+6> Evaluation - add deterministic metric validation, and a small golden evaluation dataset.
+7> Streamlit UI - provide data overview, promotion analysis, Q&A, retrieved evidence and evaluation results.
+
+Use clean modular architecture, tests, logging, .env configuration and README
+
+Important: Do not let LLM perform core numerical calculations, Clearly distinguishes correlation from assumptions and causations
+
+First inspect the dataset, propose the architecture briefly, the implement and test the application only when architecture is approved
