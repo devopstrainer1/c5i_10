@@ -21,3 +21,36 @@ Use clean modular architecture, tests, logging, .env configuration and README
 Important: Do not let LLM perform core numerical calculations, Clearly distinguishes correlation from assumptions and causations
 
 First inspect the dataset, propose the architecture briefly, the implement and test the application only when architecture is approved
+
+
+
+----------------
+
+### skincare synthetic data generation
+
+Build end to end skincare category analytics application using synthetic but realistic retail data.
+
+Generate interconnected datasets for:
+SKU/product, historical sales to analyse similar products, customer, transactions, promotions, marketing analysis, competitors and inventory
+
+The synthetic data must mimic realistic retail behaviour:
+Price elasticity, sales behaviour, promotion lift, cannibalisation, customer segments, product ratings, marketing effects, retailers and corelation between variables
+
+Create a new skincare product launch scenario and analyse
+
+1> Category trends
+2>Customer segments
+3> Product gaps
+4> Competitive pricing
+5> Promotion effectiveness
+6> USP
+7> Demand forecast
+8> Recommend launch scenarios
+
+Use statistical analysis rather than arbitrary assumptions
+
+Create an evaluation layer that compares generated patterns against some predefined realistic business rules and flags synthetic patterns that looks unrealistic
+
+Build a streamlit dashboard with charts, tables and an executive view
+
+Also create a methodology and validation support
