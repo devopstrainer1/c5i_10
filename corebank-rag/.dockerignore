@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.env
+.env.*
+tests
+evals
+ops/deploy-state.json
+*.log

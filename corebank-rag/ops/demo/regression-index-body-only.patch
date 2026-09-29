@@ -1,0 +1,11 @@
+--- a/src/retrieval/bm25.ts
++++ b/src/retrieval/bm25.ts
+@@ -23,7 +23,7 @@
+ 
+   constructor(docs: Document[]) {
+     this.docs = docs;
+-    this.docTokens = docs.map((d) => tokenize(`${d.title} ${d.text}`));
++    this.docTokens = docs.map((d) => tokenize(d.text));
+     this.avgDocLength =
+       this.docTokens.reduce((sum, t) => sum + t.length, 0) / this.docTokens.length;
+ 

@@ -1,0 +1,21 @@
+{
+  "judge": "stub-heuristic",
+  "judgments": {
+    "a01": "faithful",
+    "a02": "faithful",
+    "a03": "faithful",
+    "a04": "unfaithful",
+    "a05": "faithful",
+    "a06": "faithful",
+    "a07": "faithful",
+    "a08": "faithful",
+    "a09": "unfaithful",
+    "a10": "unfaithful",
+    "a11": "unfaithful",
+    "a12": "unfaithful",
+    "a13": "unfaithful",
+    "a14": "faithful",
+    "a15": "unfaithful",
+    "a16": "faithful"
+  }
+}

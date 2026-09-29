@@ -1,0 +1,101 @@
+{
+  "note": "The judge sees ONLY these fields. Human labels live in a separate file so the judge can never read the answer key.",
+  "items": [
+    {
+      "id": "a01",
+      "docId": "doc-8",
+      "question": "What is the monthly fee on a premium account?",
+      "answer": "Premium accounts cost $15 per month, but the fee is waived when your average daily balance is above $10,000."
+    },
+    {
+      "id": "a02",
+      "docId": "doc-4",
+      "question": "How long do I have to dispute a charge?",
+      "answer": "You must file the dispute within 60 days of the date the transaction posted."
+    },
+    {
+      "id": "a03",
+      "docId": "doc-2",
+      "question": "Does the daily limit apply when I move money between my own accounts?",
+      "answer": "No. Transfers between two accounts owned by the same customer are exempt from the daily limit."
+    },
+    {
+      "id": "a04",
+      "docId": "doc-3",
+      "question": "What does premium overdraft allow?",
+      "answer": "Premium holders can spend past zero up to their set overdraft cap and won't be turned down."
+    },
+    {
+      "id": "a05",
+      "docId": "doc-7",
+      "question": "Do savings accounts compound interest during the month?",
+      "answer": "No, interest is simple and is not compounded within the period."
+    },
+    {
+      "id": "a06",
+      "docId": "doc-5",
+      "question": "What extra step does a premium application need?",
+      "answer": "Premium applications need an income check on top of the identity verification."
+    },
+    {
+      "id": "a07",
+      "docId": "doc-8",
+      "question": "How many withdrawals can a savings account make?",
+      "answer": "Six per statement period."
+    },
+    {
+      "id": "a08",
+      "docId": "doc-6",
+      "question": "What happens to a frozen account?",
+      "answer": "Outbound transfers are blocked until an authorized reviewer lifts the freeze."
+    },
+    {
+      "id": "a09",
+      "docId": "doc-8",
+      "question": "What is the monthly fee on a premium account?",
+      "answer": "Premium accounts cost $25 per month, waived above $10,000."
+    },
+    {
+      "id": "a10",
+      "docId": "doc-4",
+      "question": "How long do I have to dispute a charge?",
+      "answer": "You have 90 days to dispute a transaction."
+    },
+    {
+      "id": "a11",
+      "docId": "doc-2",
+      "question": "Does the daily limit apply when I move money between my own accounts?",
+      "answer": "Yes, transfers between your own accounts count toward the daily limit like any other transfer."
+    },
+    {
+      "id": "a12",
+      "docId": "doc-3",
+      "question": "What does premium overdraft allow?",
+      "answer": "Premium accounts can go negative up to $5,000 and are charged a $30 overdraft fee each time."
+    },
+    {
+      "id": "a13",
+      "docId": "doc-7",
+      "question": "Do savings accounts compound interest during the month?",
+      "answer": "Savings interest compounds daily."
+    },
+    {
+      "id": "a14",
+      "docId": "doc-5",
+      "question": "Which accounts need income verification?",
+      "answer": "Savings accounts require the same income verification as premium accounts."
+    },
+    {
+      "id": "a15",
+      "docId": "doc-6",
+      "question": "What happens to a frozen account?",
+      "answer": "A frozen account can still make outbound transfers under $500."
+    },
+    {
+      "id": "a16",
+      "docId": "doc-4",
+      "question": "How are disputes between my own accounts handled?",
+      "answer": "Disputes between a customer's own accounts are escalated to the fraud review team."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "WARNING": "ILLUSTRATIVE PLACEHOLDER RATES for teaching the accounting mechanics. These are NOT real prices. Replace with your provider's current price sheet before using any number for a decision.",
+  "embeddingPerMillionTokens": 0.02,
+  "rerankPerThousandSearches": 2.0,
+  "llmInputPerMillionTokens": 3.0,
+  "llmOutputPerMillionTokens": 15.0,
+  "assumedAnswerOutputTokens": 150
+}

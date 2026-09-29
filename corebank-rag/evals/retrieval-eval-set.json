@@ -1,0 +1,182 @@
+{
+  "description": "Hand-labelled retrieval eval set for the CoreBank policy corpus. Each query lists the document(s) a human reviewer decided SHOULD be retrieved. 'mustNotReturn' lists documents a caller of that tier must never see.",
+  "queries": [
+    {
+      "id": "q01",
+      "query": "what is the daily transfer limit",
+      "tier": "public",
+      "relevant": [
+        "doc-2"
+      ]
+    },
+    {
+      "id": "q02",
+      "query": "overdraft policy for premium accounts",
+      "tier": "internal",
+      "relevant": [
+        "doc-3"
+      ]
+    },
+    {
+      "id": "q03",
+      "query": "how long do I have to dispute a transaction",
+      "tier": "internal",
+      "relevant": [
+        "doc-4"
+      ]
+    },
+    {
+      "id": "q04",
+      "query": "KYC identity verification requirements",
+      "tier": "compliance",
+      "relevant": [
+        "doc-5"
+      ]
+    },
+    {
+      "id": "q05",
+      "query": "when is an account frozen for fraud",
+      "tier": "compliance",
+      "relevant": [
+        "doc-6"
+      ]
+    },
+    {
+      "id": "q06",
+      "query": "how is savings account interest calculated",
+      "tier": "public",
+      "relevant": [
+        "doc-7"
+      ]
+    },
+    {
+      "id": "q07",
+      "query": "premium account monthly fee",
+      "tier": "public",
+      "relevant": [
+        "doc-8"
+      ]
+    },
+    {
+      "id": "q08",
+      "query": "account types standard premium savings",
+      "tier": "public",
+      "relevant": [
+        "doc-1"
+      ]
+    },
+    {
+      "id": "q09",
+      "query": "transfers between my own accounts limit exempt",
+      "tier": "public",
+      "relevant": [
+        "doc-2"
+      ]
+    },
+    {
+      "id": "q10",
+      "query": "income verification for premium applications",
+      "tier": "compliance",
+      "relevant": [
+        "doc-5"
+      ]
+    },
+    {
+      "id": "q11",
+      "query": "how many withdrawals from savings per period",
+      "tier": "public",
+      "relevant": [
+        "doc-8"
+      ]
+    },
+    {
+      "id": "q12",
+      "query": "money rules maximum amount per day for sending",
+      "tier": "public",
+      "relevant": [
+        "doc-2"
+      ]
+    },
+    {
+      "id": "q12b",
+      "query": "fraud account freeze",
+      "tier": "compliance",
+      "relevant": [
+        "doc-6"
+      ]
+    },
+    {
+      "id": "q13",
+      "query": "fraud account freeze",
+      "tier": "public",
+      "relevant": [],
+      "mustNotReturn": [
+        "doc-6"
+      ]
+    },
+    {
+      "id": "q14",
+      "query": "know your customer identity verification",
+      "tier": "public",
+      "relevant": [],
+      "mustNotReturn": [
+        "doc-5"
+      ]
+    },
+    {
+      "id": "q15",
+      "query": "overdraft review 60 days relationship manager",
+      "tier": "public",
+      "relevant": [],
+      "mustNotReturn": [
+        "doc-3"
+      ]
+    },
+    {
+      "id": "q16",
+      "query": "what happens if I keep borrowing from the bank for two months",
+      "tier": "internal",
+      "relevant": [
+        "doc-3"
+      ],
+      "note": "paraphrase - almost no shared words with doc-3"
+    },
+    {
+      "id": "q17",
+      "query": "someone stole my card and I want my money back",
+      "tier": "internal",
+      "relevant": [
+        "doc-4"
+      ],
+      "note": "paraphrase - a dispute question with no dispute vocabulary"
+    },
+    {
+      "id": "q18",
+      "query": "rules about lending me extra cash",
+      "tier": "internal",
+      "relevant": [
+        "doc-3"
+      ],
+      "note": "paraphrase"
+    },
+    {
+      "id": "q19",
+      "query": "will my savings earn anything",
+      "tier": "public",
+      "relevant": [
+        "doc-7",
+        "doc-1"
+      ],
+      "note": "label ambiguity: two docs mention savings interest"
+    },
+    {
+      "id": "q20",
+      "query": "who decides if my account gets locked",
+      "tier": "compliance",
+      "relevant": [
+        "doc-6"
+      ],
+      "note": "paraphrase of freeze"
+    }
+  ]
+}

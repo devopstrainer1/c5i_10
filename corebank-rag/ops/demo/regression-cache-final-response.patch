@@ -1,0 +1,20 @@
+--- a/src/retrieval/retrieval-endpoint.ts
++++ b/src/retrieval/retrieval-endpoint.ts
+@@ -40,7 +40,7 @@
+ const cache = new Map<string, HybridResult[]>();
+ 
+ function cacheKey(query: string, userTier: UserTier): string {
+-  return `${userTier}::${query.toLowerCase().trim()}`;
++  return query.toLowerCase().trim();
+ }
+ 
+ export function retrieve(req: RetrievalRequest): RetrievalResponse {
+@@ -65,7 +65,7 @@
+   // and reusable; the alternative (a separate index per tier) doesn't
+   // scale past a handful of tiers.
+   const allowedTiers = TIER_ACCESS[req.userTier];
+-  const filtered = fused.filter((r) => allowedTiers.includes(r.doc.tier));
++  const filtered = cached ? fused : fused.filter((r) => allowedTiers.includes(r.doc.tier));
+ 
+   const start = (page - 1) * pageSize;
+   const pageResults = filtered.slice(start, start + pageSize);

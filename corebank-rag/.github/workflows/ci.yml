@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: verify (types, tests, dependencies)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npx tsc --noEmit
+      - name: Unit tests
+        run: npx vitest run
+      # Full tree on purpose. `--omit=dev` would hide dev-tooling advisories.
+      - name: Dependency audit
+        run: npm audit --audit-level=high
+
+  evals:
+    name: evals (retrieval regression gate)
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # Fails the job (exit 1) on any permission leak, or if hit@1 / recall@3 /
+      # MRR drop more than the tolerance below evals/baseline.json.
+      - name: Retrieval eval gate
+        run: npx tsx evals/gate.ts
+      # Only runs once a CALIBRATED judge's output has been committed. An
+      # uncalibrated judge must never be allowed to block or approve a merge.
+      - name: Judge calibration gate
+        if: ${{ hashFiles('evals/judgments.approved.json') != '' }}
+        run: npx tsx evals/calibrate.ts evals/judgments.approved.json
+
+  secrets:
+    name: secrets (no credentials in the repo)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install detect-secrets
+      - name: Scan working tree
+        run: |
+          detect-secrets scan --all-files --exclude-files 'package-lock.json' > findings.json
+          python3 - <<'PY'
+          import json, sys
+          results = json.load(open("findings.json"))["results"]
+          for path, items in results.items():
+              for i in items:
+                  print(f"{path}:{i['line_number']}  {i['type']}")
+          sys.exit(1 if results else 0)
+          PY
+
+  # ADVISORY ONLY. An AI review is non-deterministic, and Anthropic's own
+  # documentation says the action is not hardened against prompt injection
+  # and should only review trusted PRs — so it never blocks a merge, and it
+  # never runs on PRs from forks.
+  ai-security-review:
+    name: ai security review (advisory)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
+    continue-on-error: true
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 2
+      - uses: anthropics/claude-code-security-review@main
+        with:
+          comment-pr: true
+          claude-api-key: ${{ secrets.CLAUDE_API_KEY }}
